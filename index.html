@@ -41,11 +41,10 @@
   font-weight: 500;
   font-size: 1.5rem;
   margin: 0;
-  transform: translateX(20px); /* move 20px to the right */
+  transform: translateX(20px); 
 }
 
 
-  /* --- Heart styles --- */
   .heart {
     position: relative;
     width: 28px;
@@ -83,7 +82,6 @@
     50% { transform: scale(1.15); }
   }
 
-  /* --- Letter container --- */
   .letter-container {
     position: absolute;
     top: 50%;
@@ -130,65 +128,63 @@
     font-family: 'Garamond', 'Georgia', serif;
   }
 
-  /* --- Responsive adjustments --- */
   @media (max-width: 600px) {
-    h2 {
-      font-size: 1.3rem;
-    }
-    .start-container {
+  h2 {
+    font-size: 1.1rem;
+  }
+  .start-container {
     transform: translate(-53%, -50%);
   }
-    .heart {
-      width: 24px;
-      height: 22px;
-    }
-    .heart::before,
-    .heart::after {
-      width: 24px;
-      height: 38px;
-    }
-    .heart::before {
-      left: 24px;
-    }
-    .letter {
-      max-width: 280px;
-      padding: 25px 18px;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    .letter h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-    }
-    .signature {
-      margin-top: 15px;
-      font-size: 0.9rem;
-    }
+  .heart {
+    width: 22px;
+    height: 20px;
   }
+  .heart::before,
+  .heart::after {
+    width: 22px;
+    height: 34px;
+  }
+  .heart::before {
+    left: 22px;
+  }
+  .letter {
+    max-width: 260px;
+    padding: 22px 16px;
+    font-size: 0.75rem;   /* smaller font */
+    line-height: 1.45;
+  }
+  .letter h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .signature {
+    margin-top: 12px;
+    font-size: 0.8rem;
+  }
+}
 
-  @media (max-width: 400px) {
-    h2 {
-      font-size: 1.1rem;
-    }
-
-      .start-container {
+@media (max-width: 400px) {
+  h2 {
+    font-size: 1rem;
+  }
+  .start-container {
     transform: translate(-54%, -50%);
   }
-    .letter {
-      max-width: 260px;
-      padding: 20px 15px;
-      font-size: 0.8rem;
-      line-height: 1.4;
-    }
-    .letter h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-    .signature {
-      margin-top: 12px;
-      font-size: 0.85rem;
-    }
+  .letter {
+    max-width: 240px;
+    padding: 18px 14px;
+    font-size: 0.7rem;    
+    line-height: 1.4;
   }
+  .letter h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  .signature {
+    margin-top: 10px;
+    font-size: 0.75rem;
+  }
+}
 
   @media (min-width: 1024px) {
     h2 {
@@ -199,7 +195,6 @@
     }
   }
 
-  /* Landscape mobile adjustment */
   @media (max-height: 600px) and (orientation: landscape) {
     .letter-container {
       max-height: 90vh;
@@ -225,30 +220,37 @@
 </head>
 <body>
 
-  <!-- Start screen -->
   <div class="start-container" id="startContainer">
     <h2>Click the heart!</h2>
     <div class="heart" id="heart"></div>
   </div>
 
-  <!-- Letter screen -->
   <div class="letter-container" id="letterContainer">
     <div class="letter">
-      <h3>Dear Crush,</h3>
+      <h3>Dear Ash,</h3>
       <p>
-        I've been keeping this in for a while, but I think Valentine's Day is the perfect time to say it—
-        you're the reason my days feel brighter. Every little moment with you means more than I can put
-        into words. Your smile, your laughter, the way you make everything feel lighter—it all makes my
-        heart race in the best way possible.
+        Happy 18th Birthday! Happy 18th birthday! I hope you liked what I made for you. 
+        I know I wasn’t really prepared for your birthday, and I couldn’t give you much, but I want you to know that everything I did came from the heart. 
+        I just wanted to make you smile on your special day, because whenever I see you happy, it makes me happy too. 
       </p>
       <p>
-        So, here it is... I like you. A lot. Maybe even love. Would you be my Valentine?
-        No matter your answer, I just wanted you to know how special you are to me. You've filled my
-        heart with warmth in ways I never expected, and for that, I'm grateful. But if you say yes, I
-        promise to make every day feel like Valentine's Day for you—to cherish you, make you smile,
-        and remind you just how much you mean to me.
+        Even when it’s not your birthday, all I ever wish for is that you’re okay, that you find strength and peace through whatever you’re going through. 
+        I want you to remember that I’m always here for you, ready to listen, no matter what it’s about. 
+        I’ll never get tired of hearing your stories, your thoughts, or even your silence. 
       </p>
-      <div class="signature">With love,<br>Your admirer</div>
+      <p>
+        I also want to apologize for the things I’ve done and said before.
+        I know I can’t undo them, but I’m here now, trying to make it right. 
+        I never meant to hurt you, and from now on I’ll do better. 
+          I want to be here to see everything that’s yet to come in your life, so I’m not going anywhere this time.
+      </p>
+      <p>
+        I’m really proud of you, of who you are now, and who you’re becoming. 
+        Thank you for coming into my life. You’ve changed me more than you probably realize. 
+        I never thought I could fix myself, but you believed in me when I couldn’t believe in myself. 
+        You never judged me for who I was, and I’ll always be grateful for that. 
+      </p>
+      <div class="signature">-joym</div>
     </div>
   </div>
 
