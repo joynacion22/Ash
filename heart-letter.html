@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Click the Heart</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: background 1.5s ease;
+    overflow: hidden;
+    font-family: 'Garamond', 'Georgia', serif;
+    flex-direction: column;
+  }
+
+  .start-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: opacity 0.8s ease;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    z-index: 2;
+  }
+
+ h2 {
+  color: #e44a5f;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0;
+  transform: translateX(20px); /* move 20px to the right */
+}
+
+
+  /* --- Heart styles --- */
+  .heart {
+    position: relative;
+    width: 28px;
+    height: 26px;
+    transform-origin: center;
+    animation: beat 1.2s infinite ease-in-out;
+    cursor: pointer;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 28px;
+    height: 45px;
+    border-radius: 50px 50px 0 0;
+    background: red;
+  }
+
+  .heart::before {
+    left: 28px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+
+  .heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  /* --- Letter container --- */
+  .letter-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 100%;
+    max-width: 500px;
+    transition: all 1.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .letter-container.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .letter {
+    position: relative;
+    background: #fff;
+    color: #111;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: left;
+    line-height: 1.6;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .letter h3 {
+    margin-top: 0;
+  }
+
+  .signature {
+    margin-top: 20px;
+    font-family: 'Garamond', 'Georgia', serif;
+  }
+
+  /* --- Responsive adjustments --- */
+  @media (max-width: 600px) {
+    h2 {
+      font-size: 1.3rem;
+    }
+    .start-container {
+    transform: translate(-53%, -50%);
+  }
+    .heart {
+      width: 24px;
+      height: 22px;
+    }
+    .heart::before,
+    .heart::after {
+      width: 24px;
+      height: 38px;
+    }
+    .heart::before {
+      left: 24px;
+    }
+    .letter {
+      max-width: 280px;
+      padding: 25px 18px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .letter h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    .signature {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    h2 {
+      font-size: 1.1rem;
+    }
+
+      .start-container {
+    transform: translate(-54%, -50%);
+  }
+    .letter {
+      max-width: 260px;
+      padding: 20px 15px;
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+    .letter h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .signature {
+      margin-top: 12px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 1.6rem;
+    }
+    .letter {
+      font-size: 1.05rem;
+    }
+  }
+
+  /* Landscape mobile adjustment */
+  @media (max-height: 600px) and (orientation: landscape) {
+    .letter-container {
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 10px 20px;
+    }
+    .letter {
+      max-width: 450px;
+      padding: 20px 25px;
+      font-size: 0.75rem;
+      line-height: 1.3;
+    }
+    .letter h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .signature {
+      margin-top: 10px;
+      font-size: 0.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Start screen -->
+  <div class="start-container" id="startContainer">
+    <h2>Click the heart!</h2>
+    <div class="heart" id="heart"></div>
+  </div>
+
+  <!-- Letter screen -->
+  <div class="letter-container" id="letterContainer">
+    <div class="letter">
+      <h3>Dear Crush,</h3>
+      <p>
+        I've been keeping this in for a while, but I think Valentine's Day is the perfect time to say it—
+        you're the reason my days feel brighter. Every little moment with you means more than I can put
+        into words. Your smile, your laughter, the way you make everything feel lighter—it all makes my
+        heart race in the best way possible.
+      </p>
+      <p>
+        So, here it is... I like you. A lot. Maybe even love. Would you be my Valentine?
+        No matter your answer, I just wanted you to know how special you are to me. You've filled my
+        heart with warmth in ways I never expected, and for that, I'm grateful. But if you say yes, I
+        promise to make every day feel like Valentine's Day for you—to cherish you, make you smile,
+        and remind you just how much you mean to me.
+      </p>
+      <div class="signature">With love,<br>Your admirer</div>
+    </div>
+  </div>
+
+<script>
+  const heart = document.getElementById('heart');
+  const letterContainer = document.getElementById('letterContainer');
+  const startContainer = document.getElementById('startContainer');
+  let clicked = false;
+
+  heart.addEventListener('click', () => {
+    if (clicked) return;
+    clicked = true;
+
+    document.body.style.background = '#f9a6c5';
+    startContainer.style.opacity = '0';
+    setTimeout(() => {
+      startContainer.style.display = 'none';
+    }, 700);
+
+    letterContainer.classList.add('visible');
+    heart.style.animation = 'none';
+  });
+</script>
+</body>
+</html>
